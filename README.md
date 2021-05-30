@@ -16,7 +16,7 @@ That will get the code running on your browser
 
 # Demo
 
-[sample demo](https://sanac007.github.io/PacMen-Exercise/)
+[Sample demo](https://sanac007.github.io/PacMen-Exercise/)
 
 ## License
 
