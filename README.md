@@ -14,6 +14,10 @@ Follow these instructions to run this code locally:
 
 That will get the code running on your browser
 
+# Demo
+
+[sample demo](https://sanac007.github.io/PacMen-Exercise/)
+
 ## License
 
 This sample is licensed under the terms of the MIT License.
