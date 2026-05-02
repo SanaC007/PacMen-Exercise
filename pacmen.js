@@ -1,10 +1,10 @@
-var pos = 0;
-const pacArray = [
-  ["./images/PacMan1.png", "./images/PacMan2.png"],
-  ["./images/PacMan3.png", "./images/PacMan4.png"],
-];
-var direction = 0;
 const pacMen = [];
+let gameStarted = false;
+
+function setPosition(image, position) {
+  image.style.left = position.x + "px";
+  image.style.top = position.y + "px";
+}
 
 function setToRandom(scale) {
   return {
@@ -23,8 +23,7 @@ function makePac() {
   newimg.style.position = "absolute";
   newimg.src = "./images/PacMan1.png";
   newimg.width = 100;
-  newimg.style.left = position.x;
-  newimg.style.top = position.y;
+  setPosition(newimg, position);
   game.appendChild(newimg);
   // new style of creating an object
   return {
@@ -35,16 +34,25 @@ function makePac() {
 }
 
 function update() {
+  if (!gameStarted) {
+    gameStarted = true;
+  }
+
   //loop over pacmen array and move each one and move image in DOM
   pacMen.forEach((item) => {
     checkCollisions(item);
     item.position.x += item.velocity.x;
     item.position.y += item.velocity.y;
 
-    item.newimg.style.left = item.position.x;
-    item.newimg.style.top = item.position.y;
+    setPosition(item.newimg, item.position);
   });
   setTimeout(update, 20);
+}
+
+function startGame() {
+  if (!gameStarted) {
+    update();
+  }
 }
 
 function checkCollisions(item) {
